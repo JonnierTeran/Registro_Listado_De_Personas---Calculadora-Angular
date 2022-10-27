@@ -1,0 +1,33 @@
+<!--Definimos la estructura html del formulario con que recolectaremos los datos
+para las operaciones
+Coleccionando estos por medio del Two Way Binding [(ngModel)] 
+para una interaccion dinamica-->
+<form method="#">
+  <label for="Num1">&nbsp;Numero 1:</label>
+  <input
+    type="number"
+    name="Num1"
+    class="form-control"
+    placeholder="Ingrese el primer numero"
+    [(ngModel)]="Calculadora.num1"
+  />
+
+  <label for="Num2">&nbsp;Numero 1:</label>
+  <input
+    type="number"
+    name="Num2"
+    class="form-control"
+    placeholder="Ingrese El Segundo Numero"
+    [(ngModel)]="Calculadora.num2"
+  />
+</form>
+
+<!--Botones de Operaciones Accediendo a los metodos por medio de
+Event Bindin Usando  el evento click-->
+<h2>Operaciones Basicas Entre 2 Numeros</h2>
+<button class="btn btn-primary" (click)="Suma()">SUMA</button>
+<button class="btn btn-primary" (click)="Resta()">RESTA</button>
+<button class="btn btn-primary" (click)="Multiplicacion()">
+  MULTIPLICACIÓN
+</button>
+<button class="btn btn-primary" (click)="Division()">DIVISIÓN</button>

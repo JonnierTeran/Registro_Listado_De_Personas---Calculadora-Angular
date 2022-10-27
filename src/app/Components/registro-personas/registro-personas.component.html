@@ -1,0 +1,40 @@
+<!--Definimos la estructura html
+del fromulario para registrar Una persona
+Usando two way binding y event binding-->
+<form class="form-row">
+    <div class="form-group col-md-3">
+      <label for="name">Nombres:</label>
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        placeholder="Nombres"
+        [(ngModel)]="NombreEdit"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="apellidos">Apellidos:</label>
+      <input
+        type="text"
+        name="Apellidos"
+        id="Apellidos"
+        placeholder="Apellidos"
+        [(ngModel)]="ApellidoEdit"
+        class="form-control"
+      />
+    </div>
+    <br />
+
+    <!--Ejecutamos los metodos de registro y Restablecimiento
+    por medio de los eventos click-->
+    <button type="submit" class="btn btn-primary" (click)="Agregar()">
+      Registrar
+    </button> &nbsp;
+    <button type="submit" class="btn btn-primary" (click)="Limpiar()">
+      Restablecer Campos
+    </button>
+  </form>
+
+  
+  

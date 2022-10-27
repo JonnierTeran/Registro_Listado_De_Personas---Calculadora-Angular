@@ -1,0 +1,54 @@
+.container {
+  box-shadow: 10px 5px 5px black;
+  margin-top: 10px;
+  background-color: blueviolet;
+  border-radius: 4%;
+}
+
+nav ul {
+  display: flex;
+  justify-content: right;
+}
+
+li {
+  list-style: none;
+  padding: 20px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-right: 9px;
+  border: solid;
+  border-radius: 8%;
+  box-shadow: 10px 5px 5px black;
+}
+
+a {
+  flex-direction: column-reverse;
+  text-decoration: none;
+  color: white !important;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h1 {
+  display: none;
+}
+li:hover {
+  background-color: rgb(255, 9, 9);
+  transform: scale(1.1);
+  font-family: cursive;
+  border-radius: 8%;
+}
+
+.Active {
+  background-color: rgb(40, 199, 8);
+  font-family: cursive;
+  border-radius: 8%;
+}
+
+img {
+  width: 90px;
+  height: 90px;
+  margin-left: 10em;
+  position: relative;
+  float: left;
+}

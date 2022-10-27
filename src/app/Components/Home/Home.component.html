@@ -1,0 +1,38 @@
+<!--Creamos la Estructura html para 
+el Componente Calculadora-->
+<div class="container">
+  <div class="container-fluid">
+    <!--Desplegamos la Variable tittle
+    por medio de Binding por Interpolacion -->
+    <h1>{{ title }}</h1>
+
+    <!--Template Reference Variable 
+      (Captura elementos html temporalmente) por medio de una variable
+    identificadora y captura los cambios con un event Bindign keyUp-->
+    <div (keyup)="0">
+      <label for="Copy">Copy of text!</label> <br />
+      <input type="text" #E class="form-control" />
+      <br>
+      <!--<p>{{ E.value }}</p>-->
+      <p>{{ I }}</p>
+    </div>
+    <hr />
+
+    <!--Propert Binding
+     Accedemos y asignamos un valor a una propiedad de un elemento html
+    por medio de property binding y aplicamos a su vez el event click-->
+    <button [disabled]="disabled" class="btn btn-primary" (click)="Cargado()">
+      CARGAR
+    </button>
+    <p>{{ cargar }}</p>
+    <br />
+    <hr />
+    <!--Evento Input
+    Capturamos el valor del imput y se lo asignamos a una variable
+  por medio de un metodo ejecutado por medio de event binding-->
+    <input type="text" class="form-control" (input)="EventoInput($event)" />
+    <p>Usted Digito: {{ Input }}</p>
+
+    
+  </div>
+</div>

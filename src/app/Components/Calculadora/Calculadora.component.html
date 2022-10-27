@@ -1,0 +1,28 @@
+<!--Creamos la Estructura html para 
+el Componente Calculadora-->
+<div class="container">
+  <div class="container-fluid">
+    <h1>APLICACIÓN CALCULADORA</h1>
+
+    <!--Desplegamos el componente
+      app-form-calculadora como componente hijo
+       y a su vez aplicamos COmunicaion por medio de Event binding
+      el cual Recibe por medio de un metodo de este El valor de la solucion de cada Operacion y el 
+    Tipo de Operacion Seleccionada-->
+    <app-form-calculadora
+      (Res)="ResOperacion($event)"
+      (TOperacion)="TipoO($event)"
+    ></app-form-calculadora>
+
+    <!--Desplegamos el componente
+      app-result-calculadora como componente hijo
+       y a su vez aplicamos COmunicaion por medio de Property binding
+      El cual le envia al componente result la informacion-->
+    <app-result-calculadora
+      [Operacion]="Operacion"
+      [Resultado]="Resultado"
+    ></app-result-calculadora>
+
+    <br /><br />
+  </div>
+</div>

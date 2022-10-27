@@ -1,0 +1,83 @@
+<!--Definimos la estructura html
+para Listar Una persona y su informacion, con Opciones
+de eliminar y Editar un registro
+Usando two way binding y event binding-->
+<div id="Selec">
+  <hr />
+  <!--Mostramos el listado ordenado Sumandole 1 digito al indice de la persona-->
+  {{ indice + 1 + "-" }}
+  <!--Mostramos la informacion de la persona
+      Accediendo a las propiedades del objeto obtenido del Componente padre
+      luego de ejecutarse el ciclo ahi-->
+  <b> {{ Elemento.Nombre + " " + Elemento.Apellido }}</b> ---- Su identificador
+  es:
+  {{ indice }}
+
+  <!--Mostramos las Opciones Eliminar y Actualizar 
+    Ejecutando metodos por medio de Event Binding-->
+  <button
+    *ngIf="!Val"
+    class="btn btn-primary"
+    id="btn"
+    (click)="Eliminar(indice)"
+  >
+    Eliminar Persona
+  </button>
+  <button
+    *ngIf="!Val"
+    class="btn btn-primary"
+    id="btn"
+    (click)="Actualizar(indice)"
+  >
+    Actualizar Persona
+  </button>
+
+  <!--Mostramos el formulario para actualizar un Objeto del arreglo
+    y se mostrara siempre y cuando se cumpla la condicion de la directiva *ngIf
+    Usando aqui tambien, Two way Bindin y el event Binding-->
+
+  <form class="form-row" *ngIf="Val">
+    <div class="form-group col-md-3">
+      <br />
+      <label for="name">Nuevos Nombres:</label>
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        placeholder="Nuevos Nombres"
+        [(ngModel)]="NombreAc"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="apellidos">Nuevos Apellidos:</label>
+      <input
+        type="text"
+        name="Apellidos"
+        id="Apellidos"
+        placeholder="Nuevos Apellidos"
+        [(ngModel)]="ApellidoAc"
+        class="form-control"
+      />
+    </div>
+    <br />
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="GuardarCambios(indice)"
+    >
+      GUARDAR CAMBIOS
+    </button>
+    &nbsp;
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="CancelarActualizacion()"
+    >
+      CANCELAR
+    </button>
+  </form>
+
+  <br />
+  <hr />
+</div>

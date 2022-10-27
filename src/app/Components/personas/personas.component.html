@@ -1,0 +1,66 @@
+<!--DEFINIMOS LA ESTRUCTURA HTML
+    DE ESTE COMPONENTE PADRE
+    EL CUAL TIENE INCLUIDO A 2 COMPONENTES MAS
+-->
+<div class="container">
+  <div class="container-fluid">
+    <!--Se imprimen 2 etiquetas de tipo h1 y h4-->
+    <h1>REGISTRO DE PERSONAS POR IDENTIFICADOR</h1>
+    <h4>Formulario De Regiistro y/o Actualización</h4>
+    <hr />
+
+    <!--Desplegamos el primer componente hijo
+        Encargado del Registro de Una persona
+        Este Componente le proporciona al componente padre
+        Un objeto de tipo PersonaModel Listo para ser agregado
+        Al Arreglo de personas
+        y Hace esto Mediante un envio por OUTPUT Y eventBindin con 
+        EvenEmmiter-->
+    <app-registro-personas
+      (PersonaNueva)="Agregar($event)"
+    ></app-registro-personas>
+
+    <br />
+    <!--Mostramos un h6
+      y Seguidamente mostramos la cantidad de personas Registradas
+      Accediendo a la cantidad de objetos registrados en el arreglo 
+      de persona-->
+    <h6>Componente 2</h6>
+    <h3>{{ persona.length }} PERSONAS REGISTRADAS EXITOSAMENTE:</h3>
+    <br />
+
+    <!--Desplegamos el segundo componente hijo
+        Encargado del Listado, Actualizacion y eliminacion de Una persona
+        Este Componente le proporciona al componente padre
+        Los index de cada Elemento en el arreglo, para asi poder realizar 
+        el proceso de seleccion, para actualizar datos y/o eliminar un elemento
+        del Arreglo y envia estos datos  Mediante un envio por OUTPUT Y eventBindin con 
+        EvenEmmiter.
+
+        A su vez este componente Recibe del componente padre una variable la cual lleva consigo 
+        Los datos (Nombre,Apeellido y el indice)
+        de cada elemento segun vaya Recorriendo el Ciclo de la directiva
+        *ngFor
+      
+        Tambien Recibe del componente padre Los datos del
+        Objeto Seleccionado por el indice enviado como lo es 
+        el nombre y apellido para pintarlos al momento de actualizar
+      
+        Tambien recibe el arreglo para realizar la actualizacion de alguno
+        de sus objetos 
+      
+        recibe todos estos datos por medio de 
+        PROPERTY BINDING-->
+    <app-lista-personas
+      *ngFor="let personaElemento of persona; let i = index"
+      [Elemento]="persona[i]"
+      [indice]="i"
+      [NombreAc]="NombreEdit"
+      [ApellidoAc]="ApellidEdit"
+      [Arreglo]="persona"
+      (Indice)="SelecEdit($event)"
+      (IndiceElim)="Eliminar($event)"
+    ></app-lista-personas>
+    <br><br>
+  </div>
+</div>
